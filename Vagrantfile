@@ -31,5 +31,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node2.vm.hostname = "node2.local"
     node2.vm.network "public_network",bridge: "en9: Targus USB3.0 DV2K Dock w Power", ip: "192.168.178.102"
   end
-end
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansi-1.yml"
+      ansible.compatibility_mode = "2.0"
+    end    
+end 
 
