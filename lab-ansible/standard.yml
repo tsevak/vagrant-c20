@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+
+  tasks:
+  - name: Update hosts file
+    ansible.builtin.blockinfile:
+      path: /etc/hosts
+      block: |
+        192.168.1.100 master.local master
+        192.168.1.101 master.local node1
+        192.168.1.102 master.local node2
